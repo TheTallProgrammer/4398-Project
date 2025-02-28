@@ -82,9 +82,10 @@ The document follows **IEEE 830-1998** standards, ensuring clear organization an
 - The maze consists of doors to be able to traverse to the next room.
 - The maze layout supports **pathfinding algorithms** for both enemies and power-ups.
 
-### 2.2 Lighting and Visibility Mechanics (fix pls!)
+### 2.2 Lighting and Visibility Mechanics
 - The **player’s visibility** is limited to the room that the charcter is currently in. 
-- The **exit finder power-up** provides a temporary vision boost.
+- Static lighting in each room.
+- room becomes visible once door has been opened (use of door is subject to change)
 - Certain **rooms** may adjust light radius.
 
 ### 2.3 Enemy Behavior and AI Pathfinding
