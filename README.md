@@ -48,7 +48,7 @@ Collin Reisman ([jps191@txstate.edu](mailto:jps191@txstate.edu))
 The purpose of this Software Requirements Specification (SRS) document is to outline the functional and non-functional requirements for **Maze of Shadows**, a 2D top-down rogue-like maze game developed in Unity. This document will serve as a reference for the development team, providing clear guidance on the game’s expected functionality, design constraints, and usability expectations.
 
 ### 1.2 Problem Statement
-Many maze-based games offer straightforward gameplay but lack suspense and immersive mechanics. **Maze of Shadows** enhances traditional maze-solving with **dynamic lighting, intelligent enemy AI, and strategic power-ups**, creating a **tense and engaging experience**. The combination of procedural maze generation and survival elements ensures a unique playthrough every time, offering replayability and challenge.
+Many maze-based games offer straightforward gameplay but lack suspense and immersive mechanics. **Maze of Shadows** enhances traditional maze-solving with **dynamic lighting, intelligent enemy AI, and moveable tiles**, creating a **tense and engaging experience**. The combination of procedural maze generation and survival elements ensures a unique playthrough every time, offering replayability and challenge.
 
 ### 1.3 Intended Audience and Document Conventions
 This document is intended for:
@@ -64,7 +64,7 @@ The document follows **IEEE 830-1998** standards, ensuring clear organization an
 - **Dynamic lighting mechanics**, restricting player vision to a small radius.
 - **Enemy AI with pathfinding** that hunts and reacts to the player.
 - **Item collection system**, requiring players to gather essential items to escape.
-- **Power-ups**, such as night vision and an exit finder, to assist player survival.
+- **Moveable tiles**, there will be premade tiles that players are able to move in any direction emulating a puzzle slide game to solve the maze.
 - **An intuitive UI** for player controls and in-game feedback.
 - **Desktop (Windows & Mac) compatibility**, developed in Unity.
 
@@ -78,14 +78,14 @@ The document follows **IEEE 830-1998** standards, ensuring clear organization an
 ## 2. Functional Requirements
 
 ### 2.1 Procedural Maze Generation
-- The game generates a **unique maze** for every new playthrough.
-- The maze consists of walls and paths that create a solvable puzzle.
+- The game generates a **maze** for a players to be able to shift around the rooms.
+- The maze consists of doors to be able to traverse to the next room.
 - The maze layout supports **pathfinding algorithms** for both enemies and power-ups.
 
-### 2.2 Lighting and Visibility Mechanics
-- The **player’s visibility** is limited to a small radius around their character.
+### 2.2 Lighting and Visibility Mechanics (fix pls!)
+- The **player’s visibility** is limited to the room that the charcter is currently in. 
 - The **exit finder power-up** provides a temporary vision boost.
-- Certain **power-ups or environmental effects** may adjust light radius.
+- Certain **rooms** may adjust light radius.
 
 ### 2.3 Enemy Behavior and AI Pathfinding
 - Enemies spawn in various locations within the maze.
@@ -93,20 +93,25 @@ The document follows **IEEE 830-1998** standards, ensuring clear organization an
 - AI uses a **pathfinding algorithm** (such as A*) to navigate the maze.
 - Some enemies may have different behaviors (e.g., fast but short-ranged, slow but persistent).
 
-### 2.4 Power-ups and Item Collection
+### 2.4 Item Collection
 - Players must collect **specific items** before reaching the exit.
 - Items will be **randomly placed** but always accessible via a valid path.
-- Available power-ups include:
-  - **Exit Finder**: Guides players towards the exit or required items.
-  - **Night Vision**: Temporarily increases visibility radius.
-  - **Health Boost**: Restores player health if damaged.
+- Available items that a player can collect include:
+  - **Coins**: A type of currency that could be used in a shop.
+  - **Weapon**: A little weapon to fight back enemies.
+  - **Health**: Restores player health if damaged.
 
 ### 2.5 Game Interface and User Interaction
 - Players control movement using **WASD or arrow keys**.
 - A **HUD (heads-up display)** shows collected items, health, and power-ups.
 - A **mini-map (if implemented)** provides limited directional guidance.
 
-### 2.6 UML Diagrams
+### 2.6 Moveable Tiles
+- Have a top level view of a maze to build that the player will use to play in.
+- Each moveable tile will be displayed a 3x3 where the minimized abstract tile view of the creator can be mapped to a much larger room that will be built when the player loads in.
+- There will be premade tiles that the player has a blank slot to slide tiles above, below, left, or right of it to form the maze they will play in, emulating a puzzle slider game.
+
+### 2.7 UML Diagrams
 To better illustrate the system’s functional architecture, the following UML diagrams are provided:
 - **Use-Case Diagram** – Displays how users (players) interact with the game system.
 - **Class Diagram** – Represents the structure of major classes and their relationships.
